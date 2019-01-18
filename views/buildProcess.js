@@ -50,9 +50,9 @@ function buildProcessPage() {
                     </div>
                     <div class="p-container">
                     <h2>Day 2: Giving Power to the Super Sonic Sensor, LED, and Horns</h2>
-                        <p>Once I was able to identify and name all the parts needed to build this project, I began with powering the Ultra Sonic Sensor. I provided 5v power from the Arduino to the sensor along with a ground. The sensor also required two signal wires, an input and an output. There are two parts to this sensor. An emitter and reviever. The emiter is responsible for sending the frequency out which is also why it is an output. This frequecy travels and eventually comes back and hits the reciever - the input. Based on how long it takes for the frequency to travel back is how it can calculate distance. When there is an interference in the airwave(someone or something has passed in front of the sensor), we can use this change in state to determine that there has been an intruder or inteference.</p>
+                        <p>Once I was able to identify and name all the parts needed to build this project, I began with powering the Ultra Sonic Sensor. I provided 5v power from the Arduino to the sensor along with a ground. The sensor also required two signal wires, an input and an output. There are two parts to this sensor; a transmitter and reciever. The transmitter emits a high pitched frequecy inaudible to most humans and is responsible for sending the frequency that will rebound and travel back to the reciever. Based on the amount of time that elapses is how we can caluculate the approximate distance of the obstruction. We can use this change in state to determine that there has been an intruder or inteference. The sensor has a range of up to 13 feet.</p>
                         <br>
-                        <p>From there, I wanted to be able to have a horn sound and light also be fired as outputs from the Arduino but only once something has passed infront of the sensor. The LED takes a 10k Ohm resister in series to lower the current coming in so we don't destroy the LED as this and most LED's only need miliamps of volatge to be powered. The horn however, needed 5v as an output which I was able to get from the Arduino. The reason we want the LED and the LIGHT to be outputs rather than plug them directly to 5v is the light and horn would always be on as opposed to then the Arduino fires it on when a certain condition is met. 
+                        <p>I also wanted to be able to have a horn sound and light triggered as outputs from the Arduino but only once something has passed infront of the sensor. The LED takes a 220k Ohm resister in series to lower the current coming in so we don't destroy the LED as this LED's only need .20amps of volatge to be powered. The horn however, needed 5v as an output which I was able to get from the Arduino. The reason we want the LED and the LIGHT to be outputs rather than plug them directly to 5v is the light and horn would always be on as opposed to then the Arduino fires it on when a certain condition is met. 
                         Simple C++ conditionals gave me the ability to write logic statements that could be evaluated.
                         </p>
                     </div>
@@ -103,7 +103,20 @@ function buildProcessPage() {
                 </div>
                 <h2>Future Goals and Added Features</h2>
                 <p class="future">
-                I plan to incorporate a range extender for those whose wifi connection may not allow the sensor to be useful on outside porperty such as a driveway or garage. I would also like eliminate the need for a wifi-connection altogether and create an alternative to long distance security options where wifi isn't available such as a public parking lot or with street parking outside a wifi range. I would also like to expand on the back end functionality and make the user experince more fluid pertaining to registering a product and product support. I appreciate the time taken to view this project and all feedback and suggestions are welcomed. Feel free to reach me by email at antdevelopment1@gmail.com. 
+                1. Incorporate a range extender for those whose wifi connection may not allow the sensor to be useful on outside porperty such as a driveway or garage. 
+                <br>
+                <br>
+                2. Eliminate the need for a wifi-connection altogether and create an alternative to long distance security options where wifi isn't available such as a public parking lot or with street parking outside a wifi range. 
+                <br>
+                <br>
+                3. Expand on the back end functionality and make the user experince more fluid pertaining to registering a product and product support.
+                <br>
+                <br>
+                4. Add additional sensors to widen the range of the sensor to be 45 degrees with 3 sensors as opposed to only 1 with a 15 degree view. 
+                <br>
+                <br>
+                I appreciate the time taken to view this project and all feedback and suggestions are welcomed. Feel free to reach me by email at antdevelopment1@gmail.com, linkedIn at https://www.linkedin.com/in/april-copes/ or view my github profile at https://github.com/antdevelopment1. 
+                
                 </p>
                 </div>
             </div>
