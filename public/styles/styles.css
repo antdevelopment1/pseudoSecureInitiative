@@ -1132,7 +1132,7 @@ form {
     /* outline: 2px solid green; */
     height: 100%;
     width: 100%;
-    padding: 1rem 2rem;
+    padding: 6rem 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1151,6 +1151,28 @@ form {
     align-items: center;
 }
 
+.vDivide {
+    /* display: flex; */
+    /* outline: 1px solid red; */
+    flex-direction: column;
+}
+
+.space1 {
+    margin-bottom: 1rem;
+}
+.space2 {
+    margin-top: 1rem;
+}
+
+.future {
+    width: 60%;
+    /* outline: 1px solid red; */
+    margin: 0 auto;
+    text-align: justify;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
 .img {
     max-height: 350px;
     min-height: 350px;
@@ -1166,13 +1188,17 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column
+    flex-direction: column;
     /* outline: 2px solid orange; */
 }
 
 .p-container p {
     width: 80%;
     text-align: justify;
+}
+
+h2 {
+    font-size: 20px;
 }
 
 @media screen and (max-width: 1400px) {
@@ -1192,6 +1218,12 @@ form {
 
 
 @media screen and (max-width: 1000px) {
+
+    .content {
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+    }
+    
     .content1,
     .content2 {
         flex-direction: column;
@@ -1199,7 +1231,8 @@ form {
 
     .lg-p p {
         /* outline: 1px solid red; */
-       width: 75%;
+        padding-bottom: 4rem;
+        width: 75%;
     }
 
 
@@ -1261,6 +1294,11 @@ form {
             line-height: 1.3rem;
         }
 
+        .future {
+            width: 75%;
+            /* outline: 1px solid red; */
+        }
+
     }
 
     @media screen and (max-width: 500px) {
@@ -1277,6 +1315,10 @@ form {
         .lg-p p{
            line-height: 1.3rem;
     
+        }
+        .future {
+            width: 80%;
+            /* outline: 1px solid red; */
         }
 
         .p-container p {
