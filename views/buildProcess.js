@@ -68,8 +68,9 @@ function buildProcessPage() {
                     </div>
                 </div>
                 <div class="content content1">
-                    <div class="img-container">
-                        <img src="./../images/voltageDivider.jpg" alt="" class="img">
+                    <div class="img-container vDivide">
+                        <img src="./../images/voltageDivider.jpg" alt="" class="img space1">
+                        <img src="./../images/wifiChipSilver.jpg" alt="" class="img space2">
                     </div>
                     <div class="p-container">
                     <h2>Day 4: Voltage Dividing and powering the 8266 wifi-chip ADC pin</h2>
@@ -85,25 +86,25 @@ function buildProcessPage() {
                     </div>
                     <div class="p-container">
                     <h2>Day 5: Glimpse into the Arduino 8266 Wifi Chip C++ Code</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                            Viverra justo nec ultrices dui sapien eget mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                            Viverra justo nec ultrices dui sapien eget mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                            Viverra justo nec ultrices dui sapien eget mi.
+                        <p> So here we have a few libray imports that allow the wifi chip to access a wifi connection. We enter the name of the wifi network along with the password. Once the wifi connection is made we set up a post request to local host 3000 including our IP Address. On the other end I have Express listening for requests on local host 3000. If the connection was successful we will get a message in json letting us know we are connected to the wifi network. From there we compare our analog read value to it's prior state. If no one has crossed in front of the sensor then the analog read value will be very low(less than 850). However, once someone has crossed in front of the sensor the voltage on the ADC pin will be 1v(an output from pin 8 on the arduino) changing the analog read value to 1024. We evealute this condition is a loop so that we know when the analog value becomes 1v. This value will be above 850 and will trigger a different post request that express is listening for, letting us know that the alarm has been triggered.
                         </p>
                     </div>
                 </div>
                 <div class="content content1">
                     <div class="img-container">
-                        <img src="./../images/cplusplus.png" alt="" class="img">
+                        <img src="./../images/nodeTwilio.png" alt="" class="img">
                     </div>
                     <div class="p-container">
                     <h2>Day 6: Glimpse into the Nodejs and Twilio Backend Code</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                            Viverra justo nec ultrices dui sapien eget mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                            Viverra justo nec ultrices dui sapien eget mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                            Viverra justo nec ultrices dui sapien eget mi.
+                        <p>
+                        Here Express is listening for post requests on localhost:3000 and localhost:3000/intruder. The first route will let be triggered once the wifi chip is connected to the wifi network. The second request is triggered once a intruder or object has crossed infront of the sensor. This then runs everything inside this route include our call to twilio. We also have the option to notify more than one person if there are more people in the household.
                         </p>
                     </div>
+                </div>
+                <h2>Future Goals and Added Features</h2>
+                <p class="future">
+                I plan to incorporate a range extender for those whose wifi connection may not allow the sensor to be useful on outside porperty such as a driveway or garage. I would also like eliminate the need for a wifi-connection altogether and create an alternative to long distance security options where wifi isn't available such as a public parking lot or with street parking outside a wifi range. I would also like to expand on the back end functionality and make the user experince more fluid pertaining to registering a product and product support. I appreciate the time taken to view this project and all feedback and suggestions are welcomed. Feel free to reach me by email at antdevelopment1@gmail.com. 
+                </p>
                 </div>
             </div>
         </div>
