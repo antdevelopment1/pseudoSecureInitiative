@@ -189,10 +189,60 @@ app.post('/intruder', (req, res) => {
 </p>
 <br>
 
+<p>Photo of Sign Up Page</p>
+<p align='center'>
+    <img src='readme/images/signup.png'></img>
+</p>
+
+```
+app.post('/signup', (req, res) => {
+    const firstname = req.body.firstname;
+    const lastname = req.body.lastname;
+    const email = req.body.email;
+    const username = req.body.username;
+    const password = req.body.password;
+
+    console.log("hey this is the form data")
+    console.log(req.body)
+
+    User.createUser(firstname, lastname, email, username, password)
+        .catch(() => {
+            res.redirect('/signup');
+        })
+        .then(newUser => {
+            req.session.user = newUser;
+            res.redirect('/dashboard');
+            console.log("User has been added");
+        });
+})
+```
+
+<br>
+
 <p>Photo of Dashboard Page</p>
 <p align='center'>
     <img src='readme/images/dashboard.png'></img>
 </p>
+
+```
+// ================================
+//       Routes GET / POST
+//   Once Inside User Dashboard
+// ================================
+
+// Welcome Dashbaord Page Once Logged In
+app.get('/dashboard', protectRoute, (req, res) => {
+    console.log(req.session);
+    const theUser = User.from(req.session.user);
+
+    let visitorName;
+    if (req.session.user) {
+        visitorName = req.session.user.firstname;
+    }
+    res.send(dashboardPage(`<p class="greeting">Welcome, ${visitorName}</p>`, req.session.user));
+})
+```
+
 <br>
 
 <p>Photo of Nodejs Dashboard</p>
@@ -205,12 +255,65 @@ app.post('/intruder', (req, res) => {
 <p align='center'>
     <img src='readme/images/login.png'></img>
 </p>
+
+```
+app.post('/login', (req, res) => {
+
+    console.log(req.body);
+    const username = req.body.username;
+    const thePassword = req.body.password;
+
+        User.getUserByUsername(username)
+            .catch(err => {
+                console.log('There was an error retriving you info');
+                res.redirect('/login');
+            })
+            .then(result => {
+                if (result.passwordDoesMatch(thePassword)) {
+                    req.session.user = result;
+                    res.redirect('/dashboard');
+                } else {
+                    res.redirect('/login');
+                }
+            })
+})
+```
+
 <br>
 
 <p>Photo of Register Product Page</p>
 <p align='center'>
     <img src='readme/images/registerProduct.png'></img>
 </p>
+
+```
+app.post('/registerProduct', (req, res) => {
+    
+    const user_id = req.session.user.id;
+    const serialNum = req.body.serialnum;
+    const phoneNumber = req.body.tel1;
+    console.log(req.session.user);
+
+    Product.getProductBySerialNumber(serialNum)
+        .catch(err => {
+            console.log('This product key has already been registered');
+            res.redirect('/registerProduct');
+        })
+        .then(result => {
+            if (result ===  undefined) {
+                res.redirect('/registerProduct');
+            } else {
+                Product.registerProduct(serialNum, phoneNumber, user_id)
+                .then(result => {
+                    console.log(result);
+                })
+                res.redirect('/editProfile');
+            }
+        })
+    
+})
+```
+
 <br>
 
 <p>Photo Nodejs Register Product Page</p>
