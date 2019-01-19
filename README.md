@@ -158,10 +158,13 @@ app.post('/intruder', (req, res) => {
 ### Future Goals and Added Features
 * Incorporate a range extender for those whose wifi connection may not allow the sensor to be useful outdoors, such as in a driveway or garage. 
 <br>
+
 * Eliminate the need for a wifi-connection altogether and create an alternative to long distance security options where wifi isn't available, such as a public parking lot or with street parking outside a wifi range. 
 <br>
+
 * Expand on the back end functionality and make the user experience more fluid, pertaining to registering a product and product support. 
 <br>
+
 * Add additional sensors to widen the range of the sensor to be 45 degrees with 3 sensors as opposed to only 1 with a 15-degree view. <br>
 <br>
 I appreciate the time taken to view this project and all feedback and suggestions are welcomed. Feel free to reach me by email at antdevelopment1@gmail.com, linkedIn at https://www.linkedin.com/in/april-copes/ or view my github profile at https://github.com/antdevelopment1.
