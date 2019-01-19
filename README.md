@@ -38,6 +38,7 @@ Without a background in C++ or Arduino my first day was spent watching tutorials
 Once I was able to identify and name all the parts needed to build this project, I began with powering the Ultra Sonic Sensor. I provided 5v power from the Arduino to the sensor along with a ground. The sensor also required two signal wires, an input, and an output. There are two parts to this sensor; a transmitter and receiver. The transmitter emits a high pitched frequency inaudible to most humans and is responsible for sending the frequency that rebounds and travels back to the receiver. Based on the amount of time that elapses, we can calculate the approximate distance of the obstruction. We can use this change in state to determine that there has been an intruder or interference. The sensor has a range of up to 13 feet. 
 <br>
 I also wanted to be able to have a horn sound and light triggered as outputs from the Arduino but only once something has passed in front of the sensor. The LED takes a 220k Ohm resistor in series to lower the current coming in so we don't destroy the LED as this LED only need .20amps of voltage to be powered. The horn, however, needed 5v as an output which I was able to get from the Arduino. The reason we want the LED and the HORN to be outputs rather than plug them directly to 5v is the light and horn would always be on as opposed to when the Arduino fires it on when a certain condition is met. Simple C++ conditionals gave me the ability to write logic statements that could be evaluated.
+<p>Photo of Super Sonic Sensor, LED, and Horn</p>
 <p align='center'>
     <img src='readme/images/sensorlight.jpg'></img>
 </p>
@@ -46,6 +47,7 @@ I also wanted to be able to have a horn sound and light triggered as outputs fro
 ### Powering the 8266 Wifi chip, downloading the drivers and libraries
 This process took a lot of time for me get working because I wasn't aware I needed libraries and drivers for the chip to work. I knew the chip needed 3.3 volts to be powered, as well as a ground. The Arduino also has a spot for 3.3v, but I read online that sometimes pulling power from the 3.3v causes issues with the wifi chip working consistently. This caused me to build a voltage regulator with an input of 5v from the Arduino and an output of 3.3v with a 1uf capacitor and .01cf capacitor in series. This did work but I also tried powering the wifi chip from the 3.3v directly and never experienced any powering issues so I removed the voltage regulator from the circuit. Next, I needed the appropriate drivers, and libraries to get the chip in working order. I read and reread the documentation for several hours and experimented until I was able to upload a simple blink program. Once I knew I could do that I knew I could upload a more complex program.
 <br>
+<p>Photo of 8266 Wifi Chip</p>
 <p align='center'>
     <img src='readme/images/wifiChipSilver.jpg' width="750" height="650"></img>
 </p>
@@ -53,6 +55,7 @@ This process took a lot of time for me get working because I wasn't aware I need
 ### Voltage Dividing and powering the 8266 wifi-chip ADC pin
 This next step was the most difficult for me in designing this circuit. The challenge was to fire an output to a pin on the wifi chip and to read the digital value of the pin. If the value is LOW do nothing because there is no voltage applied and if their value is HIGH trigger the route that will allow us to be notified of movement. This, however, did not work and after another day of digging I received a tip from my teacher to maybe consider reading analog value rather than digital. It was this tip that allowed me to look deeper in this direction and realize the specific chip I had could not do digital reads on their GPIO pins. The internal pull-down and pull-up resistor prevent you from being able to change and read the state on the fly. There were almost 20 variations of the 8266 wifi chip each with certain capabilities and restrictions adding to the complexity of what and what not to do. I finally narrowed it down to the ADC pin which could read analog values the only catch was it was 1v compatible apart from the rest of the chip that was 3.3 volt compatible. So if there was voltage applied the value read would be between 0 and 1024. If all goes well when voltage closer to a full 1v is applied your ADC pin should read 1024 and anything less than 1v should continuously be less than 1024. For example, if you have applied .5v than your analog value could read as 500. It won't be exact each time but perfect for what I needed to do. 
 <br>
+<p>Photo of Voltage Divider</p>
 <p align='center'>
     <img src='readme/images/voltageDivider.jpg' width="750" height="650"></img>
 </p>
@@ -171,6 +174,51 @@ app.post('/intruder', (req, res) => {
 ```
 
 <br>
+
+## Site Walkthrough of App Design and Functionality
+
+<p>Photo of Node Module Imports to Build Backend Featues</p>
+<br>
+<p align='center'>
+    <img src='readme/images/nodeModuleImports.png' width="750" height="650"></img>
+</p>
+
+<p>Photo of Landing Page</p>
+<br>
+<p align='center'>
+    <img src='readme/images/landingPage.png'></img>
+</p>
+
+<p>Photo of Dashboard Page</p>
+<br>
+<p align='center'>
+    <img src='readme/images/dashboard.png'></img>
+</p>
+
+<p>Photo of Nodejs Dashboard</p>
+<br>
+<p align='center'>
+    <img src='readme/images/registerProductNode.png' width="750" height="650"></img>
+</p>
+
+<p>Photo of Login Page</p>
+<br>
+<p align='center'>
+    <img src='readme/images/login.png'></img>
+</p>
+
+<p>Photo of Register Product Page</p>
+<br>
+<p align='center'>
+    <img src='readme/images/registerProduct.png'></img>
+</p>
+
+<p>Photo Nodejs Register Product Page</p>
+<br>
+<p align='center'>
+    <img src='readme/images/registerProductNode.png' width="750" height="650"></img>
+</p>
+
 
 ### Future Goals and Added Features
 * Incorporate a range extender for those whose wifi connection may not allow the sensor to be useful outdoors, such as in a driveway or garage. 
