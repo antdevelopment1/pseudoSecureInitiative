@@ -115,6 +115,7 @@ So, here we have a few library imports that allow the wifi chip to access a wifi
 ```
 
 <br>
+
 ### Glimpse into the Nodejs and Twilio Backend Code
 
 ```
@@ -153,6 +154,7 @@ app.post('/intruder', (req, res) => {
 ```
 
 <br>
+
 ### Future Goals and Added Features
 * Incorporate a range extender for those whose wifi connection may not allow the sensor to be useful outdoors, such as in a driveway or garage. 
 <br>
