@@ -28,6 +28,10 @@ This project was built for educational purposes.
 
 ### Planning
 Without a background in C++ or Arduino my first day was spent watching tutorials to learn about the anatomy of the Arduino and basic C++ syntax pertaining to Arduino. The first step was to learn how to do basic tasks such as make an LED blink, understand power source requirements throughout the board, and the differences in capability between digital and analog I/O pins, along with some basic terminology. This foundational knowledge gave me the ability to think about how I wanted to design the circuit. Luckily, I had spent the last two and half years working as an industrial electrician wiring I/O circuits on programming logic controllers (PLC's) with Seimens, Sick, Allen Bradley and various other uncommon electrical devices. I also had never programmed a logic controller or designed an electrical circuit from scratch as the engineers I worked with developed the schmatics and wrote the programs for these devices. My job was to understand the schematics and install the devices accordingly. It was very different and truly engaging to be able to wear a different hat in building this project.
+<p>Prototype Ariel Photo</p>
+<p align='center'>
+    <img src='readme/images/allAbove.jpg'></img>
+</p>
 <br>
 ### Giving Power to the Super Sonic Sensor, LED, and Horns
 Once I was able to identify and name all the parts needed to build this project, I began with powering the Ultra Sonic Sensor. I provided 5v power from the Arduino to the sensor along with a ground. The sensor also required two signal wires, an input, and an output. There are two parts to this sensor; a transmitter and receiver. The transmitter emits a high pitched frequency inaudible to most humans and is responsible for sending the frequency that rebounds and travels back to the receiver. Based on the amount of time that elapses, we can calculate the approximate distance of the obstruction. We can use this change in state to determine that there has been an intruder or interference. The sensor has a range of up to 13 feet. 
