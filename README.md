@@ -177,47 +177,47 @@ app.post('/intruder', (req, res) => {
 
 ## Site Walkthrough of App Design and Functionality
 
-<p>Photo of Node Module Imports to Build Backend Featues</p>
-<br>
-<p align='center'>
-    <img src='readme/images/nodeModuleImports.png' width="750" height="650"></img>
-</p>
-
 <p>Photo of Landing Page</p>
-<br>
 <p align='center'>
     <img src='readme/images/landingPage.png'></img>
 </p>
+<br>
+
+<p>Photo of Node Module Imports to Build Backend Featues</p>
+<p align='center'>
+    <img src='readme/images/nodeModuleImports.png'></img>
+</p>
+<br>
 
 <p>Photo of Dashboard Page</p>
-<br>
 <p align='center'>
     <img src='readme/images/dashboard.png'></img>
 </p>
+<br>
 
 <p>Photo of Nodejs Dashboard</p>
-<br>
 <p align='center'>
-    <img src='readme/images/registerProductNode.png' width="750" height="650"></img>
+    <img src='readme/images/registerProductNode.png'></img>
 </p>
+<br>
 
 <p>Photo of Login Page</p>
-<br>
 <p align='center'>
     <img src='readme/images/login.png'></img>
 </p>
+<br>
 
 <p>Photo of Register Product Page</p>
-<br>
 <p align='center'>
     <img src='readme/images/registerProduct.png'></img>
 </p>
+<br>
 
 <p>Photo Nodejs Register Product Page</p>
-<br>
 <p align='center'>
-    <img src='readme/images/registerProductNode.png' width="750" height="650"></img>
+    <img src='readme/images/registerProductNode.png'></img>
 </p>
+<br>
 
 
 ### Future Goals and Added Features
