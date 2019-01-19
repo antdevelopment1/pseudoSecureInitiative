@@ -47,14 +47,14 @@ I also wanted to be able to have a horn sound and light triggered as outputs fro
 This process took a lot of time for me get working because I wasn't aware I needed libraries and drivers for the chip to work. I knew the chip needed 3.3 volts to be powered, as well as a ground. The Arduino also has a spot for 3.3v, but I read online that sometimes pulling power from the 3.3v causes issues with the wifi chip working consistently. This caused me to build a voltage regulator with an input of 5v from the Arduino and an output of 3.3v with a 1uf capacitor and .01cf capacitor in series. This did work but I also tried powering the wifi chip from the 3.3v directly and never experienced any powering issues so I removed the voltage regulator from the circuit. Next, I needed the appropriate drivers, and libraries to get the chip in working order. I read and reread the documentation for several hours and experimented until I was able to upload a simple blink program. Once I knew I could do that I knew I could upload a more complex program.
 <br>
 <p align='center'>
-    <img src='readme/images/wifiChipSilver.jpg'></img>
+    <img src='readme/images/wifiChipSilver.jpg' width="750" height="650"></img>
 </p>
 
 ### Voltage Dividing and powering the 8266 wifi-chip ADC pin
 This next step was the most difficult for me in designing this circuit. The challenge was to fire an output to a pin on the wifi chip and to read the digital value of the pin. If the value is LOW do nothing because there is no voltage applied and if their value is HIGH trigger the route that will allow us to be notified of movement. This, however, did not work and after another day of digging I received a tip from my teacher to maybe consider reading analog value rather than digital. It was this tip that allowed me to look deeper in this direction and realize the specific chip I had could not do digital reads on their GPIO pins. The internal pull-down and pull-up resistor prevent you from being able to change and read the state on the fly. There were almost 20 variations of the 8266 wifi chip each with certain capabilities and restrictions adding to the complexity of what and what not to do. I finally narrowed it down to the ADC pin which could read analog values the only catch was it was 1v compatible apart from the rest of the chip that was 3.3 volt compatible. So if there was voltage applied the value read would be between 0 and 1024. If all goes well when voltage closer to a full 1v is applied your ADC pin should read 1024 and anything less than 1v should continuously be less than 1024. For example, if you have applied .5v than your analog value could read as 500. It won't be exact each time but perfect for what I needed to do. 
 <br>
 <p align='center'>
-    <img src='readme/images/voltageDivider.jpg'></img>
+    <img src='readme/images/voltageDivider.jpg' width="750" height="650"></img>
 </p>
 
 ### Glimpse into the Arduino 8266 Wifi Chip C++ Code
