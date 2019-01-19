@@ -203,7 +203,6 @@ app.post('/logout', (req, res) => {
 //   Once Inside User Dashboard
 // ================================
 
-// Register Product
 // Welcome Dashbaord Page Once Logged In
 app.get('/dashboard', protectRoute, (req, res) => {
     console.log(req.session);

@@ -194,6 +194,8 @@ app.post('/intruder', (req, res) => {
     <img src='readme/images/signup.png'></img>
 </p>
 
+<p>Sign up POST request</p>
+
 ```
 app.post('/signup', (req, res) => {
     const firstname = req.body.firstname;
@@ -223,6 +225,9 @@ app.post('/signup', (req, res) => {
 <p align='center'>
     <img src='readme/images/dashboard.png'></img>
 </p>
+<br>
+
+<p>Welcome Dashboard POST request</p>
 
 ```
 // ================================
@@ -255,6 +260,9 @@ app.get('/dashboard', protectRoute, (req, res) => {
 <p align='center'>
     <img src='readme/images/login.png'></img>
 </p>
+<br>
+
+<p>Sign up POST request</p>
 
 ```
 app.post('/login', (req, res) => {
@@ -285,6 +293,9 @@ app.post('/login', (req, res) => {
 <p align='center'>
     <img src='readme/images/registerProduct.png'></img>
 </p>
+<br>
+
+<p>Register Product POST request</p>
 
 ```
 app.post('/registerProduct', (req, res) => {
