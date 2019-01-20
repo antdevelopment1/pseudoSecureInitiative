@@ -28,8 +28,8 @@ class User {
         const salt = bcrypt.genSaltSync(saltRounds);
         const hash = bcrypt.hashSync(user_password, salt);
 
-        return db.one(`
-        insert into users (firstname, lastname, email, username, user_password) 
+        return db.one(
+        `insert into users (firstname, lastname, email, username, user_password) 
         values($1, $2, $3, $4, $5) returning id, firstname, lastname, email, username, user_password`, 
         [firstname, lastname, email, username, hash])
             .then(result => {
@@ -79,6 +79,10 @@ class User {
 
     // Retrieve user username
     static getUserByUsername(username) {
+        
+        // const salt = bcrypt.genSaltSync(saltRounds);
+        // const hash = bcrypt.hashSync(user_password, salt);
+
         return db.one(`select * from users where username ilike '%$1:raw%'`, [username])
         .then(userUsername => {
             const userInstance = new User(userUsername.id, userUsername.firstname, userUsername.lastname, userUsername.email, userUsername.username, userUsername.user_password);
@@ -104,6 +108,7 @@ class User {
 
     // Update user username
     updateUsername(username) {
+        this.username = username;
         console.log(username)
         return db.result(`update users set username=$2 where id=$1`, [this.id, username])
             .then(updatedRow => {
@@ -120,11 +125,12 @@ class User {
 
     // Update user password
     updatePassword(password) {
-
+        this.user_password = password;
+        
         const salt = bcrypt.genSaltSync(saltRounds);
         const hash = bcrypt.hashSync(password, salt);
 
-        return db.result(`update users set user_password=$2 where id=$1`, [this.id, password])
+        return db.result(`update users set user_password=$2 where id=$1`, [this.id, hash])
             .then(result => {
                 console.log(result)
                 if (result.rowCount === 1) {

@@ -166,24 +166,25 @@ app.get('/login', (req, res) => {
 
 // Login Page Post Request
 app.post('/login', (req, res) => {
-
-    console.log(req.body);
     const username = req.body.username;
     const thePassword = req.body.password;
 
-        User.getUserByUsername(username)
-            .catch(err => {
-                console.log('There was an error retriving you info');
+    User.getUserByUsername(username)
+        .catch(err => {
+            console.log('There was an error retriving you info');
+            res.redirect('/login');
+        })
+        .then(result => {
+            console.log("hi")
+            console.log(result);
+            console.log("hi")
+            if (result.passwordDoesMatch(thePassword)) {
+                req.session.user = result;
+                res.redirect('/dashboard');
+            } else {
                 res.redirect('/login');
-            })
-            .then(result => {
-                if (result.passwordDoesMatch(thePassword)) {
-                    req.session.user = result;
-                    res.redirect('/dashboard');
-                } else {
-                    res.redirect('/login');
-                }
-            })
+            }
+        })
 })
 
 // Logout Post Request
