@@ -1,6 +1,7 @@
 # The Pseudo Secure Initiative
 
-## Live Demo Coming Soon
+## Live Prototype Demo Coming Soon
+## Live Web App Demo Coming Soon 
 ---
 
 ## What Is The Pseudo Secure Initiative and Why Was It Built
