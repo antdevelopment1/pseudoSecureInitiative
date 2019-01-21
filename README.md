@@ -1,7 +1,7 @@
 # The Pseudo Secure Initiative
 
-## Live Prototype Demo Coming Soon
-## Live Web App Demo Coming Soon 
+## [Live Site / Code Walkthrough](https://youtu.be/yH35dFExK6A)
+## [Live Prototype](https://youtu.be/Ht-qqCjTPq4)
 ---
 
 ## What Is The Pseudo Secure Initiative and Why Was It Built
