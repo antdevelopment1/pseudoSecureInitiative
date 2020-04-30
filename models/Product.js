@@ -25,13 +25,14 @@ class Product {
     static registerProduct(serial_number, phone_number, user_id) {
 
         return db.one(
-        `insert into products (serial_number, phone_number, user_id) 
-        values($1, $2, $3) returning id, serial_number, phone_number, user_id`, 
-        [serial_number, phone_number, user_id])
-            .then(result => {
-                const newInstance = new Product (result.id, result.serial_number, result.phone_number, result.user_id);
-                return newInstance;
-            })
+            `insert into products (serial_number, phone_number, user_id) 
+            values($1, $2, $3) returning id, serial_number, phone_number, user_id`, 
+            [serial_number, phone_number, user_id]
+        )
+        .then( result => {
+            const newInstance = new Product (result.id, result.serial_number, result.phone_number, result.user_id);
+            return newInstance;
+        })
 
     }
 

@@ -11,12 +11,11 @@ function loginPage() {
 </head>
 <body>
     <div class="login-page">
-            <nav class="nav-container">
-                    <div class="nav">
-                            <li><a href="/">HOME</a></li>
-                        
-                    </div>
-                </nav>
+      <nav class="nav-container">
+          <div class="nav">
+                <li><a href="/">HOME</a></li>
+          </div>
+      </nav>
                 <div class="login-form-title">
                     <h1 class="login-title">Pseudo Secure Login In Form</h1> 
                     <h2>Please fill in the information below to login to your account.</h2>

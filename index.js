@@ -6,7 +6,7 @@ require('dotenv').config();
 // ================================
 //       NPM Module Imports
 // ================================
-const client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_TOKEN);
+// const client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_TOKEN);
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
